@@ -9,7 +9,8 @@ public class MyBatisApplication2 {
 
     public static void main(String[] args) {
         SqlSession sqlSession;
-        sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
+        sqlSession = MyBatisUtil.getSqlSessionFactoryByXml().openSession();
+//        sqlSession = MyBatisUtil.getSqlSessionFactoryByCode().openSession();
         RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
         Role role = roleMapper.getRole(1L);
         System.out.println("role_name = >" + role.getRoleName());
