@@ -1,5 +1,8 @@
 package io.github.futurewl;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("role")
 public class Role {
 
     private Long id;

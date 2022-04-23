@@ -26,25 +26,8 @@ public class MyBatisUtil {
                 String resource = "mybatis_config.xml";
                 InputStream inputStream = Resources.getResourceAsStream(resource);
                 sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-                return sqlSessionFactory;
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return sqlSessionFactory;
-    }
-
-    /**
-     * 功能描述：通过 XML 文件构建 SQL 会话
-     *
-     * @return
-     */
-    public static SqlSessionFactory getSqlSessionFactoryByXml2() {
-        if (sqlSessionFactory == null) {
-            try {
-                String resource = "mybatis_config.xml";
-                InputStream inputStream = Resources.getResourceAsStream(resource);
-                sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+                Configuration configuration = sqlSessionFactory.getConfiguration();
+                Environment environment = configuration.getEnvironment();
                 return sqlSessionFactory;
             } catch (IOException e) {
                 throw new RuntimeException(e);
