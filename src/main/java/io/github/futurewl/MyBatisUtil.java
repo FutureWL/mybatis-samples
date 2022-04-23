@@ -35,6 +35,25 @@ public class MyBatisUtil {
     }
 
     /**
+     * 功能描述：通过 XML 文件构建 SQL 会话
+     *
+     * @return
+     */
+    public static SqlSessionFactory getSqlSessionFactoryByXml2() {
+        if (sqlSessionFactory == null) {
+            try {
+                String resource = "mybatis_config.xml";
+                InputStream inputStream = Resources.getResourceAsStream(resource);
+                sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+                return sqlSessionFactory;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return sqlSessionFactory;
+    }
+
+    /**
      * 功能描述：通过 代码 文件构建 SQL 会话
      *
      * @return
@@ -53,4 +72,6 @@ public class MyBatisUtil {
         sqlSessionFactory = new SqlSessionFactoryBuilder().build(configuration);
         return sqlSessionFactory;
     }
+
+
 }
