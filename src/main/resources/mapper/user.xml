@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.futurewl.UserMapper">
+    <resultMap id="userMap" type="io.github.futurewl.User">
+        <id property="id" column="tu.id"/>
+        <result property="username" column="tu.username"/>
+        <result property="password" column="tu.password"/>
+        <collection property="roleList" javaType="java.util.List" resultMap="roleMap"/>
+    </resultMap>
+
+    <resultMap id="roleMap" type="io.github.futurewl.Role">
+        <id property="id" column="id"/>
+        <result property="roleName" column="role_name"/>
+        <result property="note" column="note"/>
+    </resultMap>
+
+    <select id="selectUserList" resultMap="userMap">
+        select tu.id, tu.username, tu.password, tr.id, tr.role_name, tr.note
+        from t_user tu
+                 left join t_user_role tur on tu.id = tur.user_id
+                 left join t_role tr on tur.role_id = tr.id
+    </select>
+</mapper>

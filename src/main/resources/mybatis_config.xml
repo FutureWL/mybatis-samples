@@ -33,5 +33,6 @@
     <!--    <databaseIdProvider type=""></databaseIdProvider> &lt;!&ndash; 数据库厂商标识 &ndash;&gt;-->
     <mappers>
         <mapper resource="\mapper\role.xml"/>
+        <mapper resource="\mapper\user.xml"/>
     </mappers> <!-- 映射器 -->
 </configuration>
