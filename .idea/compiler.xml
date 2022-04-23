@@ -6,21 +6,20 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="mybatis-plus-java-samples" />
-        <module name="mybatis-java-samples" />
+        <module name="mybatis-samples" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="mybatis-java-samples" target="1.8" />
       <module name="mybatis-plus-java-samples" target="1.8" />
-      <module name="mybatis-samples" target="1.8" />
+      <module name="mybatis-samples" target="1.5" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="mybatis-java-samples" options="-parameters" />
       <module name="mybatis-plus-java-samples" options="-parameters" />
-      <module name="mybatis-samples" options="-parameters" />
+      <module name="mybatis-samples" options="" />
     </option>
   </component>
 </project>
